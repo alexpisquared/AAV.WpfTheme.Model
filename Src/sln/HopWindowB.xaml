@@ -1,0 +1,16 @@
+﻿<lnk:WindowBase xmlns:lnk="clr-namespace:AAV.WPF.Base;assembly=AAV.WPF" x:Name="wnd" Style="{StaticResource WindowStyle_Aav0}"
+                x:Class="AAV.WpfTheme.Model.App.HopWindowB" Title="HopWindow ?" 
+                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d"
+                xmlns:local="clr-namespace:AAV.WpfTheme.Model.App"
+                Height="150" Width="200" Background="#1000" >
+  <WindowChrome.WindowChrome>
+    <WindowChrome CaptionHeight="0" ResizeBorderThickness="10" />
+  </WindowChrome.WindowChrome>
+  <Viewbox>
+    <StackPanel>
+      <TextBlock FontSize="12" HorizontalAlignment="Center" Text="A" x:Name="tb0" />
+      <local:MainSwitchboardUsrCtrl Background="#1fff" VerticalAlignment="Top" />
+      <TextBlock FontSize="44" HorizontalAlignment="Center" Text="B" />
+    </StackPanel>
+  </Viewbox>
+</lnk:WindowBase>

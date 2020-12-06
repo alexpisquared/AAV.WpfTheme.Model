@@ -1,0 +1,169 @@
+﻿<lnk:WindowBase xmlns:lnk="clr-namespace:AAV.WPF.Base;assembly=AAV.WPF" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                xmlns:AAV.WPF="clr-namespace:AAV.WPF.View;assembly=AAV.WPF"                
+                xmlns:local="clr-namespace:AAV.WpfTheme.Model.App" x:Name="wnd"
+                x:Class="AAV.WpfTheme.Model.App.MainWindow" mc:Ignorable="d"
+                Title="MainWindow" Height="500" Width="800"                
+                Loaded="onLoaded">
+  <lnk:WindowBase.Resources>
+    <ResourceDictionary >
+      <ResourceDictionary.MergedDictionaries>
+        <!--ap:overriding global backup theme from APP.xaml ... for design time only !!!remove for production!!!:
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.VaporWave.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
+        <ResourceDictionary Source="/AAV.WPF;component/Base/DataGrid.Base.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
+      </ResourceDictionary.MergedDictionaries>
+      <DataTemplate x:Key="SampleListItemTemplate">
+        <StackPanel>
+          <CheckBox IsChecked="{Binding Done}"/>
+          <TextBlock Text="{Binding ID}"/>
+          <Image Source="{Binding Look}" HorizontalAlignment="Left" Height="32" Width="32"/>
+          <TextBlock Text="{Binding Name}"/>
+        </StackPanel>
+      </DataTemplate>
+      <DataTemplate x:Key="SampleListItemTemplate1">
+        <StackPanel>
+          <CheckBox IsChecked="{Binding Done}"/>
+          <TextBlock Text="{Binding ID}"/>
+          <Image Source="{Binding Look}" HorizontalAlignment="Left" Height="12" Width="12"/>
+          <TextBlock Text="{Binding Name}"/>
+        </StackPanel>
+      </DataTemplate>
+      <DataTemplate x:Key="LookTemplate">
+        <StackPanel>
+          <Image Source="{Binding Look}" HorizontalAlignment="Left" Height="24" Width="24"/>
+        </StackPanel>
+      </DataTemplate>
+    </ResourceDictionary>
+  </lnk:WindowBase.Resources>
+  <lnk:WindowBase.Style>
+    <StaticResource ResourceKey="WindowStyle_Aav0"/>
+  </lnk:WindowBase.Style>
+  <WindowChrome.WindowChrome>
+    <WindowChrome CaptionHeight="0" ResizeBorderThickness="10" />
+  </WindowChrome.WindowChrome>
+  <Border Style="{StaticResource BorderStyle_Aav0}" DataContext="{Binding Source={StaticResource SampleDataSource}}">
+    <Grid x:Name="ZommablePanel">
+      <Grid.LayoutTransform>
+        <ScaleTransform ScaleX="{Binding ZV, ElementName=wnd, FallbackValue=1}" ScaleY="{Binding ZV, ElementName=wnd, FallbackValue=1}" />
+      </Grid.LayoutTransform>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="3*"/>
+        <ColumnDefinition Width="6.0"/>
+        <ColumnDefinition Width="3*"/>
+        <ColumnDefinition Width="6.0"/>
+        <ColumnDefinition Width="5*"/>
+      </Grid.ColumnDefinitions>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="Auto"/>
+        <RowDefinition Height="2*"/>
+        <RowDefinition Height="6.0"/>
+        <RowDefinition Height="3*"/>
+        <RowDefinition Height="Auto"/>
+      </Grid.RowDefinitions>
+
+      <TextBlock Text="{Binding CurTheme, ElementName=themeSelector1, FallbackValue=Theme.Color.Dark.Gray.xaml}" FontSize="32" Grid.ColumnSpan="3" x:Name="tbkHeader" />
+
+      <AAV.WPF:ThemeSelectorUsrCtrl Grid.Column="2" HorizontalAlignment="Right" x:Name="themeSelector1"  />
+      <local:MainSwitchboardUsrCtrl Grid.Column="4" HorizontalAlignment="Right" />
+
+      <WrapPanel Grid.Column="0" Grid.Row="1">
+        <Label     Content="L_abel:" HorizontalAlignment="Left"  />
+        <DatePicker />
+        <CheckBox    Content="Check this" IsChecked="False"    />
+        <CheckBox    Content="Check this" IsChecked="{x:Null}" />
+        <CheckBox    Content="Check this" IsChecked="True"     />
+        <RadioButton Content="Radio that" IsChecked="False"    />
+        <RadioButton Content="Radio that" IsChecked="{x:Null}" />
+        <RadioButton Content="Radio that" IsChecked="True"     />
+      </WrapPanel>
+
+      <WrapPanel Grid.Column="2" Grid.Row="1">
+        <ComboBox                                                              >
+          <ComboBoxItem Content="Abc"/>
+          <ComboBoxItem Content="Efg"/>
+          <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;Dflt&quot; IsRO=&quot;Dflt&quot;"/>
+        </ComboBox>
+        <ComboBox  IsEditable="False"  IsReadOnly="True"   BorderBrush="Red" >
+          <ComboBoxItem Content="Abc"/>
+          <ComboBoxItem Content="Efg"/>
+          <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;False&quot; IsRO=&quot;True&quot;"/>
+        </ComboBox>
+        <ComboBox  IsEditable="False"  IsReadOnly="False"   BorderBrush="Red" >
+          <ComboBoxItem Content="Abc"/>
+          <ComboBoxItem Content="Efg"/>
+          <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;False&quot; IsRO=&quot;False&quot;"/>
+        </ComboBox>
+        <ComboBox  IsEditable="True"   IsReadOnly="True"  BorderBrush="Red" >
+          <ComboBoxItem Content="Abc"/>
+          <ComboBoxItem Content="Efg"/>
+          <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;True&quot; IsRO=&quot;True&quot;"/>
+        </ComboBox>
+        <ComboBox  IsEditable="True"   IsReadOnly="False"  BorderBrush="Red" >
+          <ComboBoxItem Content="Abc"/>
+          <ComboBoxItem Content="Efg"/>
+          <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;True&quot; IsRO=&quot;False&quot;"/>
+        </ComboBox>
+      </WrapPanel>
+
+      <DataGrid Grid.Column="2" Grid.Row="3" x:Name="dg1" Foreground="{StaticResource MainForegroundBrush}">
+        <DataGrid.Columns>
+          <DataGridTextColumn Header="Id++" Width="1*" Binding="{Binding ID}" />
+          <DataGridTextColumn Header="Name" Width="2*" Binding="{Binding Name}" />
+        </DataGrid.Columns>
+      </DataGrid>
+
+      <StackPanel Orientation="Vertical" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3">
+        <StackPanel Orientation="Horizontal" >
+          <Label     Content="       Label:"  />
+          <TextBox   Text="No '_' - bad style " />
+          <TextBlock Text="tbk 4 info" />
+          <TextBlock Text="Error (Dynamic Rsr)" Foreground="{DynamicResource ErorForegroundBrush}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+          <Label     Content="      _Label:"   Target="{Binding ElementName=t1}"/>
+          <TextBox   Text="Yes '_' - good style "                      x:Name="t1"/>
+          <TextBlock Text="tbk 4 info" />
+          <TextBlock Text="Error (Static Rsr)" Foreground="{StaticResource ErorForegroundBrush}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+          <AccessText Text="Acc_essText:"  AccessKeyManager.AccessKeyPressed="onAccessKeyPressed_focusT2" />
+          <TextBox   Text="good style + event to target "                        x:Name="t2"/>
+          <TextBlock Text="tbk 4 info" />
+          <TextBlock Text="Error (Static Rsr)" Foreground="{StaticResource ErorForegroundBrush}" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" >
+          <AccessText Text="AccessText:"  />
+          <TextBox   Text="good style " />
+          <TextBlock Text="tbk 4 info" />
+          <TextBlock Text="Error  (Static Rsr)" Foreground="{StaticResource ErorForegroundBrush}" />
+        </StackPanel>
+      </StackPanel>
+
+      <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+        <Button Content="Default"  IsDefault="True" Click="onDefaultClick" />
+        <Button Content="Cancel "  IsCancel="True"    />
+        <Button Content="Disabled" IsEnabled="False"  />
+      </StackPanel>
+
+      <TextBlock x:Name="tbkInfo" Grid.Row="4" Grid.ColumnSpan="5" HorizontalAlignment="Left" Text="Some info"/>
+
+      <ListBox  Grid.Column="0" Margin="4" Grid.Row="3" ItemTemplate="{DynamicResource SampleListItemTemplate}"  ItemsSource="{Binding SampleList}" />
+
+      <DataGrid Grid.Column="4" Margin="4" Grid.Row="3" AutoGenerateColumns="False" ItemsSource="{Binding SampleList}">
+        <DataGrid.Columns>
+          <DataGridTextColumn Binding="{Binding ID}" Header="ID"/>
+          <DataGridCheckBoxColumn Binding="{Binding Done}" Header="Done"/>
+          <DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
+          <DataGridTemplateColumn CellTemplate="{StaticResource LookTemplate}" Header="Look"/>
+        </DataGrid.Columns>
+      </DataGrid>
+
+      <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" />
+      <GridSplitter Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" />
+      <GridSplitter Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="5" />
+
+    </Grid>
+  </Border>
+</lnk:WindowBase>
