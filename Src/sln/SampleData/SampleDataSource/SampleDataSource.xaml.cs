@@ -28,8 +28,8 @@ namespace Expression.Blend.SampleData.SampleDataSource
     {
       try
       {
-        //Uri resourceUri = new Uri(                       "ms-appx:/SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.RelativeOrAbsolute); //tu: fix for SampleData missing at runtime (absolute vs relative: VS Community Edtn throws here with "cannot use absolute...")
-        Uri resourceUri = new Uri("/AAV.WpfTheme.Model.App;component/SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.RelativeOrAbsolute); //tu: fix for SampleData missing at runtime (absolute vs relative)
+        Uri resourceUri = new Uri("ms-appx:/SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.RelativeOrAbsolute); //tu: fix for SampleData missing at runtime (absolute vs relative: VS Community Edtn throws here with "cannot use absolute...")
+        //Uri resourceUri = new Uri("/AAV.WpfTheme.Model.App;component/SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.RelativeOrAbsolute); //tu: fix for SampleData missing at runtime (absolute vs relative)
 
         System.Windows.Application.LoadComponent(this, resourceUri);
       }

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AAV.WpfTheme.Model.App"
              mc:Ignorable="d" 
-             d:DesignHeight="26" d:DesignWidth="100">
+             d:DesignHeight="26" d:DesignWidth="100" x:Name="ths">
   <UserControl.Resources>
     <ResourceDictionary >
       <ResourceDictionary.MergedDictionaries>

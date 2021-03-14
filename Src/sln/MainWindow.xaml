@@ -9,8 +9,8 @@
       <ResourceDictionary.MergedDictionaries>
         <!--ap:overriding global backup theme from APP.xaml ... for design time only !!!remove for production!!!:
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.VaporWave.xaml" />
-        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/DataGrid.Base.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
       </ResourceDictionary.MergedDictionaries>
@@ -80,6 +80,10 @@
       </WrapPanel>
 
       <WrapPanel Grid.Column="2" Grid.Row="1">
+        <ComboBox                                                              >
+          <ComboBoxItem Content="Abc" IsSelected="True"/>
+          <ComboBoxItem Content="Efg"/>
+        </ComboBox>
         <ComboBox                                                              >
           <ComboBoxItem Content="Abc"/>
           <ComboBoxItem Content="Efg"/>

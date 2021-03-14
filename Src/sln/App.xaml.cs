@@ -13,7 +13,7 @@ namespace AAV.WpfTheme.Model.App
 
       ShutdownMode = ShutdownMode.OnLastWindowClose;
 
-      palyBeeps();
+      //palyBeeps();
 
       new MainWindow().Show();
 
