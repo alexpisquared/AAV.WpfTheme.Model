@@ -5,6 +5,7 @@ namespace Expression.Blend.SampleData.SampleDataSource
 {
   using System;
   using System.ComponentModel;
+  using System.Diagnostics;
 
   // To significantly reduce the sample data footprint in your production application, you can set
   // the DISABLE_SAMPLE_DATA conditional compilation constant and disable sample data at runtime.
@@ -26,16 +27,19 @@ namespace Expression.Blend.SampleData.SampleDataSource
 
     public SampleDataSource()
     {
-      try
-      {
-        Uri resourceUri = new Uri("ms-appx:/SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.RelativeOrAbsolute); //tu: fix for SampleData missing at runtime (absolute vs relative: VS Community Edtn throws here with "cannot use absolute...")
-        //Uri resourceUri = new Uri("/AAV.WpfTheme.Model.App;component/SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.RelativeOrAbsolute); //tu: fix for SampleData missing at runtime (absolute vs relative)
+      //try
+      //{
+      //  //Uri resourceUri = new Uri("ms-appx:../../../SampleData/SampleDataSource/SampleDataSource.xaml", UriKind.Relative); //tu: fix for SampleData missing at runtime (absolute vs relative: VS Community Edtn throws here with "cannot use absolute...")
+      //  var resourceUri = new Uri(@"..\..\..\SampleData\SampleDataSource\SampleDataSource.xaml", UriKind.Relative); //tu: fix for SampleData missing at runtime (absolute vs relative)
 
-        System.Windows.Application.LoadComponent(this, resourceUri);
-      }
-      catch
-      {
-      }
+      //  Debug.WriteLine(Environment.CurrentDirectory);
+
+      //  System.Windows.Application.LoadComponent(this, resourceUri);
+      //}
+      //catch(Exception ex)
+      //{
+      //  Debug.WriteLine(ex);
+      //}
     }
 
     private SampleList _SampleList = new SampleList();
