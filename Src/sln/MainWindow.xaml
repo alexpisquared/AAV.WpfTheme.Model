@@ -9,8 +9,9 @@
       <ResourceDictionary.MergedDictionaries>
         <!--ap:overriding global backup theme from APP.xaml ... for design time only !!!remove for production!!!:
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.VaporWave.xaml" />
-        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
+        <ResourceDictionary Source="/AAV.WPF;component/Base/ComboBox.Base.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/DataGrid.Base.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
       </ResourceDictionary.MergedDictionaries>
@@ -80,31 +81,31 @@
       </WrapPanel>
 
       <WrapPanel Grid.Column="2" Grid.Row="1">
-        <ComboBox                                                              >
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}" MinWidth="238" >
           <ComboBoxItem Content="Abc" IsSelected="True"/>
           <ComboBoxItem Content="Efg"/>
         </ComboBox>
-        <ComboBox                                                              >
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}" MinWidth="238"                                                              >
           <ComboBoxItem Content="Abc"/>
           <ComboBoxItem Content="Efg"/>
           <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;Dflt&quot; IsRO=&quot;Dflt&quot;"/>
         </ComboBox>
-        <ComboBox  IsEditable="False"  IsReadOnly="True"   BorderBrush="Red" >
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}"  IsEditable="False"  IsReadOnly="True"   BorderBrush="Red" MinWidth="238" >
           <ComboBoxItem Content="Abc"/>
           <ComboBoxItem Content="Efg"/>
           <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;False&quot; IsRO=&quot;True&quot;"/>
         </ComboBox>
-        <ComboBox  IsEditable="False"  IsReadOnly="False"   BorderBrush="Red" >
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}"  IsEditable="False"  IsReadOnly="False"   BorderBrush="Red" MinWidth="238" >
           <ComboBoxItem Content="Abc"/>
           <ComboBoxItem Content="Efg"/>
           <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;False&quot; IsRO=&quot;False&quot;"/>
         </ComboBox>
-        <ComboBox  IsEditable="True"   IsReadOnly="True"  BorderBrush="Red" >
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}"  IsEditable="True"   IsReadOnly="True"  BorderBrush="Red" MinWidth="238" >
           <ComboBoxItem Content="Abc"/>
           <ComboBoxItem Content="Efg"/>
           <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;True&quot; IsRO=&quot;True&quot;"/>
         </ComboBox>
-        <ComboBox  IsEditable="True"   IsReadOnly="False"  BorderBrush="Red" >
+        <ComboBox Template="{DynamicResource ComboBoxTemplate1}"  IsEditable="True"   IsReadOnly="False"  BorderBrush="Red" MinWidth="238">
           <ComboBoxItem Content="Abc"/>
           <ComboBoxItem Content="Efg"/>
           <ComboBoxItem IsSelected="True" Content="IsEditable=&quot;True&quot; IsRO=&quot;False&quot;"/>
