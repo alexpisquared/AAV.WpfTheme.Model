@@ -29,13 +29,6 @@ namespace AAV.WpfTheme.Model.App
     void populateDemoData()
     {
       dg1.ItemsSource = new List<Row>(); for (var i = 1; i <= 7; i++) ((List<Row>)dg1.ItemsSource).Add(new Row { ID = i * 10, Name = $"{(char)(i + 64)}{(char)(i + 97)}{(char)(i + 98)} {(char)(i + 99)}{(char)(i + 100)}{(char)(i + 101)}" });
-
-      var sdl = new Expression.Blend.SampleData.SampleDataSource.SampleList();
-      dg2.ItemsSource = sdl;
-      lb2.ItemsSource = sdl;
-
-      var sds = new SampleDataSource(); ;
-      DataContext = sds;
     }
 
     void onDefaultClick(object s, RoutedEventArgs e) => MessageBox.Show("Nothing assigned to this event.");

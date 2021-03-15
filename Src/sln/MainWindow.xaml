@@ -17,12 +17,12 @@
         <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
       </ResourceDictionary.MergedDictionaries>
       <DataTemplate x:Key="SampleListItemTemplate">
-        <StackPanel>
+        <WrapPanel Width="240">
+          <Image Source="{Binding Look}" HorizontalAlignment="Left" Height="32" Width="32"/>
           <CheckBox IsChecked="{Binding Done}"/>
           <TextBlock Text="{Binding ID}"/>
-          <Image Source="{Binding Look}" HorizontalAlignment="Left" Height="32" Width="32"/>
-          <TextBlock Text="{Binding Name}"/>
-        </StackPanel>
+          <TextBlock Text="{Binding Name}" Width="222"/>
+        </WrapPanel>
       </DataTemplate>
       <DataTemplate x:Key="SampleListItemTemplate1">
         <StackPanel>
@@ -62,6 +62,7 @@
         <RowDefinition Height="2*"/>
         <RowDefinition Height="6.0"/>
         <RowDefinition Height="3*"/>
+        <RowDefinition Height="3*"/>
         <RowDefinition Height="Auto"/>
       </Grid.RowDefinitions>
 
@@ -73,13 +74,15 @@
       <WrapPanel Grid.Column="0" Grid.Row="1">
         <Label     Content="L_abel:" HorizontalAlignment="Left"  />
         <DatePicker />
-        <GridSplitter Width="110" Height="11" />
+        <Rectangle Width="222" Height="8" />
         <CheckBox    Content="Check this" IsChecked="False"    />
         <CheckBox    Content="Check this" IsChecked="{x:Null}" />
         <CheckBox    Content="Check this" IsChecked="True"     />
+        <Rectangle Width="222" Height="8" />
         <RadioButton Content="Radio that" IsChecked="False"    />
         <RadioButton Content="Radio that" IsChecked="{x:Null}" />
         <RadioButton Content="Radio that" IsChecked="True"     />
+        <Rectangle Width="222" Height="8" />
         <TextBox Text="101 Yonge St" />
       </WrapPanel>
 
@@ -149,7 +152,7 @@
         </StackPanel>
       </StackPanel>
 
-      <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Right">
+      <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Right">
         <Button Content="Default"  IsDefault="True" Click="onDefaultClick" />
         <Button Content="Cancel "  IsCancel="True"    />
         <Button Content="Disabled" IsEnabled="False"  />
@@ -157,16 +160,26 @@
 
       <TextBlock x:Name="tbkInfo" Grid.Row="4" Grid.ColumnSpan="5" HorizontalAlignment="Left" Text="Some info"/>
 
-      <ListBox   Grid.Column="0" Margin="4" Grid.Row="3" ItemTemplate="{DynamicResource SampleListItemTemplate}"  ItemsSource="{Binding SampleList}" x:Name="lb1" />
-      <ListView  Grid.Column="0" Margin="4" Grid.Row="3" x:Name="lb2">
-        <d:ListView.ItemsSource>
+      <ListBox   Grid.Column="0" Margin="4" Grid.Row="3" Grid.RowSpan="3" ItemTemplate="{DynamicResource SampleListItemTemplate}"  x:Name="lb1" >
+        <ListBox.ItemsSource>
           <x:Array Type="{x:Type models:SampleListItem}">
             <models:SampleListItem ID="75" Name="Maecenas aliquam praesent"     Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image01.png" Done="True"/>
             <models:SampleListItem ID="71" Name="Aenean class cras"             Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image02.png" Done="False"/>
             <models:SampleListItem ID="56" Name="Mauris nullam integer quisque" Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image03.png" Done="True"/>
             <models:SampleListItem ID="77" Name="Accumsan duis"                 Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image04.png" Done="False"/>
           </x:Array>
-        </d:ListView.ItemsSource>
+        </ListBox.ItemsSource>
+      </ListBox>
+      
+      <ListView  Grid.Column="4" Margin="4" Grid.Row="4" x:Name="lb2">
+        <ListView.ItemsSource>
+          <x:Array Type="{x:Type models:SampleListItem}">
+            <models:SampleListItem ID="75" Name="Maecenas aliquam praesent"     Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image01.png" Done="True"/>
+            <models:SampleListItem ID="71" Name="Aenean class cras"             Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image02.png" Done="False"/>
+            <models:SampleListItem ID="56" Name="Mauris nullam integer quisque" Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image03.png" Done="True"/>
+            <models:SampleListItem ID="77" Name="Accumsan duis"                 Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image04.png" Done="False"/>
+          </x:Array>
+        </ListView.ItemsSource>
         <ListView.ItemTemplate>
           <DataTemplate>
             <StackPanel Orientation="Horizontal" >
@@ -177,13 +190,21 @@
         </ListView.ItemTemplate>
       </ListView>
 
-      <DataGrid Grid.Column="4" Margin="4" Grid.Row="3" AutoGenerateColumns="False" ItemsSource="{Binding SampleList}" x:Name="dg2">
+      <DataGrid Grid.Column="4" Margin="4" Grid.Row="3" AutoGenerateColumns="False" x:Name="dg2">
         <DataGrid.Columns>
           <DataGridTextColumn Binding="{Binding ID}" Header="ID"/>
           <DataGridCheckBoxColumn Binding="{Binding Done}" Header="Done"/>
           <DataGridTextColumn Binding="{Binding Name}" Header="Name"/>
           <DataGridTemplateColumn CellTemplate="{StaticResource LookTemplate}" Header="Look"/>
         </DataGrid.Columns>
+        <DataGrid.ItemsSource>
+          <x:Array Type="{x:Type models:SampleListItem}">
+            <models:SampleListItem ID="75" Name="Maecenas aliquam praesent"     Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image01.png" Done="True"/>
+            <models:SampleListItem ID="71" Name="Aenean class cras"             Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image02.png" Done="False"/>
+            <models:SampleListItem ID="56" Name="Mauris nullam integer quisque" Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image03.png" Done="True"/>
+            <models:SampleListItem ID="77" Name="Accumsan duis"                 Look="C:\g\AAV.WpfTheme.Model\Src\sln\SampleData\SampleDataSource\SampleDataSource_Files\image04.png" Done="False"/>
+          </x:Array>
+        </DataGrid.ItemsSource>
       </DataGrid>
 
       <GridSplitter Grid.Column="1" Grid.Row="1" Grid.RowSpan="3" />
