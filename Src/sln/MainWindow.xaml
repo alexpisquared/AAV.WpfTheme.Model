@@ -8,11 +8,12 @@
       <ResourceDictionary.MergedDictionaries>
         <!--ap:overriding global backup theme from APP.xaml ... for design time only !!!remove for production!!!:
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.VaporWave.xaml" />
-        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/ComboBox.Base.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/DataGrid.Base.xaml" />
-        <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/Base/TabItem.Base.xaml" />
       </ResourceDictionary.MergedDictionaries>
       <DataTemplate x:Key="SampleListItemTemplate">
         <WrapPanel Width="244">
@@ -68,6 +69,12 @@
 
       <AAV.WPF:ThemeSelectorUsrCtrl Grid.Column="2" HorizontalAlignment="Right" x:Name="themeSelector1"  />
       <local:MainSwitchboardUsrCtrl Grid.Column="4" HorizontalAlignment="Right" />
+
+      <TabControl Grid.Column="2" Grid.Row="4">
+        <TabItem Header="Tab 1"/>
+        <TabItem Header="Tab 2"/>
+        <TabItem Header="Tab 3"/>
+      </TabControl>
 
       <WrapPanel Grid.Column="0" Grid.Row="1">
         <Label     Content="L_abel:" HorizontalAlignment="Left"  />

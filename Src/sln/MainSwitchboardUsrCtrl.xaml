@@ -5,19 +5,19 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:AAV.WpfTheme.Model.App"
              mc:Ignorable="d" 
-             d:DesignHeight="26" d:DesignWidth="100" x:Name="ths">
+             d:DesignHeight="26" d:DesignWidth="200" x:Name="ths">
   <UserControl.Resources>
     <ResourceDictionary >
       <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
       </ResourceDictionary.MergedDictionaries>
       <Style TargetType="Button">
-        <Setter Property="Width"              Value="65"     />
-        <Setter Property="FontWeight"         Value="SemiBold"    />
-        <Setter Property="FontSize"           Value="12"    />
-        <Setter Property="Margin"             Value="0 2"      />
-        <Setter Property="Background"         Value="Transparent"      />
-        <Setter Property="BorderThickness"    Value="0"      />
+        <Setter Property="Width"              Value="65"            />
+        <Setter Property="FontWeight"         Value="SemiBold"      />
+        <Setter Property="FontSize"           Value="12"            />
+        <Setter Property="Margin"             Value="0 2"           />
+        <Setter Property="BorderThickness"    Value="0"             />
+        <Setter Property="Background"         Value="#e00"        />
       </Style>
     </ResourceDictionary>
   </UserControl.Resources>
@@ -25,5 +25,8 @@
     <MenuItem Header="_A" x:Name="btnA" Click="onA" Foreground="#08f" Visibility="{Binding ElementName=ths, Path=VizLeads}" />
     <MenuItem Header="_B" x:Name="btnB" Click="onB" Foreground="#a08" Visibility="{Binding ElementName=ths, Path=VizBroad}" />
     <MenuItem Header="_C" x:Name="btnC" Click="onC" Foreground="#0a0" Visibility="{Binding ElementName=ths, Path=VizOu2Db}" />
+    <MenuItem Header="a" x:Name="VizLeads" />
+    <MenuItem Header="b" x:Name="VizBroad" />
+    <MenuItem Header="c" x:Name="VizOu2Db" />
   </Menu>
 </UserControl>
