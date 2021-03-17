@@ -8,8 +8,8 @@
       <ResourceDictionary.MergedDictionaries>
         <!--ap:overriding global backup theme from APP.xaml ... for design time only !!!remove for production!!!:
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.VaporWave.xaml" />
-        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
         <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Dark.Gray.xaml" />
+        <ResourceDictionary Source="/AAV.WPF;component/ColorScheme/Theme.Color.Lite.Gray.xaml" />-->
         <ResourceDictionary Source="/AAV.WPF;component/Base/BasicDefaultsLayout.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/ComboBox.Base.xaml" />
         <ResourceDictionary Source="/AAV.WPF;component/Base/DataGrid.Base.xaml" />
